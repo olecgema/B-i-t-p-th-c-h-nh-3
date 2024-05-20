@@ -1,0 +1,36 @@
+<h1>Authors</h1>
+<ul id="authors"></ul>
+
+<script>
+mang1=[]
+fetch('https://jsonplaceholder.typicode.com/posts')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json();
+  })
+  .then(data => {
+    const userIds = data.map(post => post.userId);
+    mang1.push(userIds)
+  })
+  .catch(error => {
+    console.error('Có lỗi xảy ra trong quá trình fetch:', error);
+  });
+  fetch('https://jsonplaceholder.typicode.com/posts')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json();
+  })
+  .then(data => {
+    const Ids = data.map(post => post.id);
+    console.log(Ids);
+  })
+  .catch(error => {
+    console.error('Có lỗi xảy ra trong quá trình fetch:', error);
+  });
+
+console.log(mang1)
+</script>
